@@ -6,11 +6,26 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to React</h2>
+          <h2>Marveller</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="Search">
+          <div className="SearchFilter">
+            <input type="text" value="" />
+          </div>
+          <div className="SearchResults">
+            <ul>
+              <li>first</li>
+              <li>second</li>
+              <li className="selected">third</li>
+            </ul>
+          </div>
+        </div>
+        <div className="RelatedTimeline">
+          <ul>
+            <li>first</li>
+            <l>second</l>
+          </ul>
+        </div>
       </div>
     );
   }

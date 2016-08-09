@@ -13,12 +13,17 @@ class Search extends Component {
       results: []
     };
     this.handleSearch = this.handleSearch.bind(this);
-    this.throttledSearch = _.throttle(this.props.marveller.characters, 2000).bind(this.props.marveller)
+    this.throttledSearch = _.throttle(this.props.marveller.characters, 500).bind(this.props.marveller);
   }
+
   handleSearch(event) {
     var self = this;
+    var query = {
+      nameStartsWith: event.target.value,
+      limit: 10
+    };
     this.setState({lastQuery: event.target.value});
-    this.throttledSearch({nameStartsWith: event.target.value}).then(function (data) {
+    this.throttledSearch(query).then(function (data) {
       console.info(data);
       self.setState({results: data['results']});
     })

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 class Character extends Component {
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       selected: false
     };

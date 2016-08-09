@@ -10,7 +10,7 @@ class RelatedComics extends Component {
   render() {
     var results = [];
     this.props.comics.forEach(function (result) {
-      results.push(<Comic key={'comic-' + result.id} comic={result} />);
+      results.push(<Comic key={'comic-' + result.id} comic={result}/>);
     });
     return (
       <div className="RelatedComics">

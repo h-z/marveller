@@ -33,7 +33,7 @@ class Search extends Component {
     var results = [];
     var self = this;
     this.state.results.forEach(function (result) {
-      results.push(<Character key={result.id} character={result} handleSelected={self.props.handleSelected}/>);
+      results.push(<Character key={'char-' + result.id} character={result} handleSelected={self.props.handleSelected}/>);
     });
     return (
       <div className="Search">

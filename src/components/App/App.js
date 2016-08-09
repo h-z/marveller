@@ -9,7 +9,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Marveller</h2>
         </div>
-        <Search />
+        <Search marveller={this.props.marveller} />
         <div className="RelatedTimeline">
           <ul>
             <li>first</li>

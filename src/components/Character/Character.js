@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import './Character.css';
+import classNames from 'classnames';
 
 class Character extends Component {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this)
+    this.state = {
+      selected: false
+    };
   }
 
   imageUrl() {
@@ -13,12 +17,13 @@ class Character extends Component {
   }
 
   handleClick() {
-    console.info(this.props.character)
+    console.info(this.props.character);
+    this.setState({selected: !this.state.selected});
   }
 
   render() {
     return (
-      <div className="Character flip-container" onClick={this.handleClick}>
+      <div className={classNames('Character', 'flip-container', {selected: this.state.selected})} onClick={this.handleClick}>
         <div className="flipper">
           <div className="back">
             <h3>{this.props.character.name}</h3>

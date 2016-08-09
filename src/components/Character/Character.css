@@ -49,3 +49,7 @@
 .back {
     transform: rotateY(180deg);
 }
+
+.Character.selected {
+    border: 2px solid #990000;
+}

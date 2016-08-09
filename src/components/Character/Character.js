@@ -19,6 +19,7 @@ class Character extends Component {
   handleClick() {
     console.info(this.props.character);
     this.setState({selected: !this.state.selected});
+    this.props.handleSelected(this.props.character);
   }
 
   render() {

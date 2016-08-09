@@ -26,13 +26,14 @@ class Search extends Component {
     this.throttledSearch(query).then(function (data) {
       console.info(data);
       self.setState({results: data['results']});
-    })
+    });
   }
 
   render() {
     var results = [];
+    var self = this;
     this.state.results.forEach(function (result) {
-      results.push(<Character key={result.id} character={result} />);
+      results.push(<Character key={result.id} character={result} handleSelected={self.props.handleSelected}/>);
     });
     return (
       <div className="Search">

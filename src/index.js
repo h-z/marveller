@@ -7,6 +7,8 @@ import Marveller from './libs/Marveller';
 
 var key = process.env.REACT_APP_MARVEL_API_KEY;
 
+window.marveller = new Marveller(key);
+
 ReactDOM.render(
   <App marveller={new Marveller(key)} />,
   document.getElementById('root')

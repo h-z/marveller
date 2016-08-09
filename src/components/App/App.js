@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from '../Search/Search';
+import RelatedComics from '../RelatedComics/RelatedComics';
 
 class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      selected: null
+      selected: null,
+      comics: []
     };
     this.handleSelected = this.handleSelected.bind(this);
   }
 
   handleSelected(item) {
     this.setState({selected: item});
+    // console.info(item);
+    var self = this;
+    this.props.marveller.comics({characters: item.id}).then(function (data) {
+      console.warn(data['results']);
+      self.setState({comics: data['results']});
+    })
   }
 
   render() {
@@ -22,12 +30,7 @@ class App extends Component {
           <h2>Marveller</h2>
         </div>
         <Search marveller={this.props.marveller} handleSelected={this.handleSelected}/>
-        <div className="RelatedTimeline">
-          <ul>
-            <li>first</li>
-            <l>second</l>
-          </ul>
-        </div>
+        <RelatedComics character={this.state.selected} comics={this.state.comics} />
       </div>
     );
   }

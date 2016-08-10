@@ -15,7 +15,6 @@ class App extends Component {
 
   handleSelected(item) {
     this.setState({selected: item});
-    // console.info(item);
     var self = this;
     var query = {
       characters: item.id,
@@ -23,7 +22,6 @@ class App extends Component {
     };
     self.setState({comics: []});
     this.props.marveller.comics(query).then(function (data) {
-      // console.warn(data['results']);
       self.setState({comics: self.state.comics.concat(data['results'])});
     })
   }

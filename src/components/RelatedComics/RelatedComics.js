@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import './RelatedComics.css';
 import Comic from '../Comic/Comic';
+import Timeline from './Timeline';
+import _ from 'lodash';
 
 class RelatedComics extends Component {
   getDates(comic) {
@@ -11,19 +13,32 @@ class RelatedComics extends Component {
     return dates;
   }
 
+  extractDates(comics) {
+    var data = {};
+    var self = this;
+    var years = comics.map(function(comic) {
+      return self.getDates(comic)['onsaleDate'].getFullYear();
+    });
+    _.range(_.min(years), _.max(years)+1).forEach(function (d) {
+      data[d] = 0;
+    });
+    years.forEach(function (year) {
+      if (year % 1 === 0) {
+        data[year]++;
+      }
+    });
+    return data;
+  }
+
   render() {
     var results = [];
-    var self = this;
+
     this.props.comics.forEach(function (result) {
-      // var dates = self.getDates(result);
       results.push(<Comic key={'comic-' + result.id} comic={result}/>);
-      // console.info(dates);
     });
     return (
       <div className="RelatedComics">
-        {results}
-        <div className="RelatedTimeline">
-        </div>
+        <Timeline data={this.extractDates(this.props.comics)}/>
       </div>
     );
   }

@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var paths = require('./paths');
+var env = require('./env');
 
 module.exports = {
   devtool: 'eval',
@@ -96,6 +97,7 @@ module.exports = {
       favicon: paths.appFavicon,
     }),
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"development"' }),
+    new webpack.DefinePlugin(env),
     // Note: only CSS is currently hot reloaded
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin()

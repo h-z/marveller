@@ -26,7 +26,7 @@ class Character extends Component {
       <div className={classNames('Character', 'flip-container', {selected: this.state.selected})} onClick={this.handleClick}>
         <div className="flipper">
           <div className="back">
-            <h3>{this.props.character.name}</h3>
+            {this.props.character.name}
           </div>
           <div className="front">
             <Image src={this.imageUrl()} responsive />

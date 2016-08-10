@@ -37,7 +37,7 @@ class RelatedComics extends Component {
       title = 'Select a character to view its comics.'
     } else {
       if (this.props.comics.length > 0) {
-        title = `Listing ${this.props.character.name}'s comic appearances`;
+        title = `Listing ${this.props.character.name}'s comic appearances by year`;
       } else {
         title = `Unfortunately ${this.props.character.name} doesn't appear in comics. Select another character.`
       }

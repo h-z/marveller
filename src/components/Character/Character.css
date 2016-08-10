@@ -17,8 +17,8 @@
 }
 
 .flip-container, .front, .back {
-    width: 150px;
-    height: 225px;
+    /*width: 150px;*/
+    /*height: 225px;*/
 }
 
 /* flip speed goes here */

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Timeline.css';
 import _ from 'lodash';
 
-import { BarChart } from 'react-d3';
+import { BarChart } from 'rd3';
 
 
 class Timeline extends Component {

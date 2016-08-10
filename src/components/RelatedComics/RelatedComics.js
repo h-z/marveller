@@ -39,6 +39,7 @@ class RelatedComics extends Component {
     return (
       <div className="RelatedComics">
         <Timeline data={this.extractDates(this.props.comics)}/>
+        <div className="comics">{results}</div>
       </div>
     );
   }

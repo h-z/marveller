@@ -24,7 +24,6 @@ class Search extends Component {
     };
     this.setState({lastQuery: event.target.value});
     this.throttledSearch(query).then(function (data) {
-      console.info(data);
       self.setState({results: data['results']});
     });
   }

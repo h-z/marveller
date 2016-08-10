@@ -18,7 +18,6 @@ class Character extends Component {
   }
 
   handleClick() {
-    this.setState({selected: !this.state.selected});
     this.props.handleSelected(this.props.character);
   }
 

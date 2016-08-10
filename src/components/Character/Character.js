@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Character.css';
 import classNames from 'classnames';
+import { Image } from 'react-bootstrap';
 
 class Character extends Component {
   constructor() {
@@ -29,7 +30,7 @@ class Character extends Component {
             <h3>{this.props.character.name}</h3>
           </div>
           <div className="front">
-            <img src={this.imageUrl()} alt={this.props.character.name}/>
+            <Image src={this.imageUrl()} responsive />
           </div>
         </div>
       </div>

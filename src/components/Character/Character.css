@@ -1,10 +1,10 @@
 .Character {
-    background-color: #343d46;
-    border: 2px solid #3a33d1;
+    background-color: floralwhite;
+    border: none;
     width: 150px;
     height: 225px;
     float: left;
-    color: floralwhite;
+    color: #343d46;
 }
 
 /* entire container, keeps perspective */

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Character.css';
 import classNames from 'classnames';
+import { Image } from 'react-bootstrap';
 
 class Character extends Component {
   constructor() {
@@ -17,7 +18,6 @@ class Character extends Component {
   }
 
   handleClick() {
-    this.setState({selected: !this.state.selected});
     this.props.handleSelected(this.props.character);
   }
 
@@ -26,10 +26,10 @@ class Character extends Component {
       <div className={classNames('Character', 'flip-container', {selected: this.state.selected})} onClick={this.handleClick}>
         <div className="flipper">
           <div className="back">
-            <h3>{this.props.character.name}</h3>
+            {this.props.character.name}
           </div>
           <div className="front">
-            <img src={this.imageUrl()} alt={this.props.character.name}/>
+            <Image src={this.imageUrl()} responsive />
           </div>
         </div>
       </div>

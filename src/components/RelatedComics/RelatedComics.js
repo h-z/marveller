@@ -32,12 +32,22 @@ class RelatedComics extends Component {
 
   render() {
     var results = [];
-
+    var title;
+    if (null === this.props.character) {
+      title = 'Select a character to view its comics.'
+    } else {
+      if (this.props.comics.length > 0) {
+        title = `Listing ${this.props.character.name}'s comic appearances by year`;
+      } else {
+        title = `Unfortunately ${this.props.character.name} doesn't appear in comics. Select another character.`
+      }
+    }
     this.props.comics.forEach(function (result) {
       results.push(<Comic key={'comic-' + result.id} comic={result}/>);
     });
     return (
       <div className="RelatedComics">
+        <h3>{title}</h3>
         <Timeline data={this.extractDates(this.props.comics)}/>
         <div className="comics">{results}</div>
       </div>

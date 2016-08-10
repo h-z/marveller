@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Search from '../Search/Search';
 import RelatedComics from '../RelatedComics/RelatedComics';
+import logo from './marvel-logo.jpg';
 
 class App extends Component {
   constructor(props, context) {
@@ -30,7 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Marveller</h2>
+          <img src={logo} className="App-logo" alt="Marveller" />
         </div>
         <Search marveller={this.props.marveller} handleSelected={this.handleSelected}/>
         <RelatedComics character={this.state.selected} comics={this.state.comics} />

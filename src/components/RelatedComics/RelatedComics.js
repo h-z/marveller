@@ -3,14 +3,21 @@ import React, { Component } from 'react';
 import Comic from '../Comic/Comic';
 
 class RelatedComics extends Component {
-  constructor(props, context) {
-    super(props, context);
+  getDates(comic) {
+    var dates = {};
+    comic.dates.forEach(function (date) {
+      dates[date.type] = new Date(Date.parse(date.date));
+    });
+    return dates;
   }
 
   render() {
     var results = [];
+    var self = this;
     this.props.comics.forEach(function (result) {
+      // var dates = self.getDates(result);
       results.push(<Comic key={'comic-' + result.id} comic={result}/>);
+      // console.info(dates);
     });
     return (
       <div className="RelatedComics">

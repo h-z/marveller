@@ -17,9 +17,14 @@ class App extends Component {
     this.setState({selected: item});
     // console.info(item);
     var self = this;
-    this.props.marveller.comics({characters: item.id}).then(function (data) {
-      console.warn(data['results']);
-      self.setState({comics: data['results']});
+    var query = {
+      characters: item.id,
+      orderBy: 'onsaleDate'
+    };
+    self.setState({comics: []});
+    this.props.marveller.comics(query).then(function (data) {
+      // console.warn(data['results']);
+      self.setState({comics: self.state.comics.concat(data['results'])});
     })
   }
 

@@ -7,9 +7,9 @@ import { BarChart } from 'rd3';
 
 class Timeline extends Component {
 
-  createChartData(data) {
+  createChartData(data, name) {
     return {
-      name: 'Issues/year',
+      name: name,
       values: _.map(data, function (value, year) {
         return {x: year, y: value}
       }),
@@ -17,16 +17,18 @@ class Timeline extends Component {
   }
 
   render() {
-    var data = [this.createChartData(this.props.data)];
+    if (0 === _.values(this.props.data).length) {
+      return (<div className="Timeline"></div>);
+    }
+    var data = [this.createChartData(this.props.data, 'Issues/year')];
     return (
-      <div className="Timeline">
         <BarChart
           data={data}
-          width={500}
+          width={960}
           height={200}
           fill={'cornflowerblue'}
+          onClick={console.info}
         />
-      </div>
     );
   }
 }

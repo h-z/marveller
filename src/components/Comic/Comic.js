@@ -23,7 +23,7 @@ class Comic extends Component {
 
   render() {
     return (
-      <div className={classNames('Comic', 'flip-container')}>
+      <div className={classNames('Comic', 'flip-container', {hidden: !this.props.comic.visible})}>
         <div className="flipper">
           <div className="back">
             {this.props.comic.title}

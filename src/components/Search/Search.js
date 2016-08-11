@@ -18,14 +18,19 @@ class Search extends Component {
 
   handleSearch(event) {
     var self = this;
+    var str = event.target.value;
     var query = {
-      nameStartsWith: event.target.value,
+      nameStartsWith: str,
       limit: 10
     };
-    this.setState({lastQuery: event.target.value});
-    this.throttledSearch(query).then(function (data) {
-      self.setState({results: data['results']});
-    });
+    this.setState({lastQuery: str});
+    if ('' === str) {
+      self.setState({results: []});
+    } else {
+      this.throttledSearch(query).then(function (data) {
+        self.setState({results: data['results']});
+      });
+    }
   }
 
   render() {

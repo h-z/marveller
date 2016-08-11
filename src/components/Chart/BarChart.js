@@ -21,7 +21,6 @@ class BarChart extends Component {
     });
 
     this.setState({width:this.props.width});
-
   }
   componentDidMount() {
     this.updateSize();
@@ -43,6 +42,8 @@ class BarChart extends Component {
 
   render(){
     var data = this.props.data;
+    var self = this;
+
     var maxValue = _.max((data).map(function (item) {
       return parseInt(item.value);
     }));
@@ -80,8 +81,11 @@ class BarChart extends Component {
         <rect fill="#74d3eb" rx="3" ry="3" key={'fg-' + i}
               x={x(d.title)} y={y(d.value)} className="shadow"
               height={height}
-              title={d.value}
-              width={x.rangeBand()}/>
+              title={d.title}
+              onMouseOver={self.props.handler}
+              width={x.rangeBand()}>
+          <title>{d.value}</title>
+        </rect>
       )
     });
 

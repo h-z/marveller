@@ -24,7 +24,7 @@ class Timeline extends Component {
           width={960}
           height={200}
           fill={'cornflowerblue'}
-          onClick={console.info}
+          handler={this.props.handler}
         />
     );
   }

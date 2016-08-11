@@ -3,8 +3,6 @@ import './Search.css';
 import SearchFilter from './SearchFilter';
 import Character from '../Character/Character';
 
-import _ from 'lodash';
-
 class Search extends Component {
   constructor(props, context) {
     super(props, context);

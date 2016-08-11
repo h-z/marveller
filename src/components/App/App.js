@@ -4,7 +4,7 @@ import Search from '../Search/Search';
 import RelatedComics from '../RelatedComics/RelatedComics';
 import logo from './marvel-logo.jpg';
 import loading from './loading.svg';
-import Image from 'react-bootstrap';
+
 class App extends Component {
   constructor(props, context) {
     super(props, context);

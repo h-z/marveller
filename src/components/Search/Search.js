@@ -13,7 +13,7 @@ class Search extends Component {
       results: []
     };
     this.handleSearch = this.handleSearch.bind(this);
-    this.throttledSearch = _.throttle(this.props.marveller.characters, 500).bind(this.props.marveller);
+    this.delayedTimer = null;
   }
 
   handleSearch(event) {
@@ -27,9 +27,12 @@ class Search extends Component {
     if ('' === str) {
       self.setState({results: []});
     } else {
-      this.throttledSearch(query).then(function (data) {
-        self.setState({results: data['results']});
-      });
+      clearTimeout(this.delayedTimer);
+      this.delayedTimer = setTimeout(function() {
+        self.props.marveller.characters(query).then(function (data) {
+          self.setState({results: data['results']});
+        });
+      }, 500);
     }
   }
 

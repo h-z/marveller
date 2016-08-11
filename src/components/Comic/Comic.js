@@ -26,7 +26,7 @@ class Comic extends Component {
       <div className={classNames('Comic', 'flip-container')}>
         <div className="flipper">
           <div className="back">
-            <h3>{this.props.comic.title}</h3>
+            {this.props.comic.title}
           </div>
           <div className="front">
             <img src={this.imageUrl()} alt={this.props.comic.title}/>

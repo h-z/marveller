@@ -5,8 +5,8 @@ import {expect} from 'chai';
 import SearchFilter from '../../../src/components/Search/SearchFilter.js';
 
 describe('<SearchFilter/>', function () {
-  it('should have a filter section', function () {
+  it('should have an inline form', function () {
     const wrapper = shallow(<SearchFilter/>);
-    expect(wrapper.find('.SearchFilter')).to.have.length(1);
+    expect(wrapper.find('Form')).to.have.length(1);
   });
 });

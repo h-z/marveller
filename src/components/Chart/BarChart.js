@@ -48,7 +48,6 @@ class BarChart extends Component {
     }));
 
     var margin={top:5,right:5,bottom:5,left:5},
-      // w=this.state.width-(margin.left+margin.right),
       h=this.props.height-(margin.top+margin.bottom);
 
     var transform='translate('+margin.left+','+margin.top+')';

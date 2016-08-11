@@ -43,7 +43,6 @@ class BarChart extends Component {
 
   render(){
     var data = this.props.data;
-    console.info(data)
     var margin={top:5,right:5,bottom:5,left:5},
       // w=this.state.width-(margin.left+margin.right),
       h=this.props.height-(margin.top+margin.bottom);
@@ -70,11 +69,14 @@ class BarChart extends Component {
       )
     });
     var rectForeground=(data).map(function(d, i) {
-
+      var height = h-y(d.value);
+      if (height < 0) {
+        height =0;
+      }
       return (
         <rect fill="#74d3eb" rx="3" ry="3" key={'fg-' + i}
               x={x(d.title)} y={y(d.value)} className="shadow"
-              height={h-y(d.value)}
+              height={height}
               title={d.value}
               width={x.rangeBand()}/>
       )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-// import _ from 'lodash';
+import _ from 'lodash';
 import $ from 'jquery';
 import d3 from 'd3';
 
@@ -43,6 +43,10 @@ class BarChart extends Component {
 
   render(){
     var data = this.props.data;
+    var maxValue = _.max((data).map(function (item) {
+      return parseInt(item.value);
+    }));
+
     var margin={top:5,right:5,bottom:5,left:5},
       // w=this.state.width-(margin.left+margin.right),
       h=this.props.height-(margin.top+margin.bottom);
@@ -56,7 +60,7 @@ class BarChart extends Component {
       .rangeRoundBands([0,this.state.width],.35);
 
     var y=d3.scale.linear()
-      .domain([0,100])
+      .domain([0,maxValue])
       .range([this.props.height,0]);
 
     var rectBackground=(data).map(function(d, i) {

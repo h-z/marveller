@@ -9,7 +9,7 @@ class Timeline extends Component {
 
   createChartData(data, name) {
     return _.map(data, function (value, year) {
-      return {title: year, value: 10*value}
+      return {title: year, value: value}
     });
   }
 

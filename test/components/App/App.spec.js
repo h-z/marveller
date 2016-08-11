@@ -12,4 +12,16 @@ describe('<App/>', function () {
     expect(wrapper.find('.App-header')).to.have.length(1);
   });
 
+  it('shouldn\'t be busy', function () {
+    const wrapper = shallow(<App marveller={mockMarveller}/>);
+    expect(wrapper.state().busy).to.equal(false);
+  });
+
+  it('should display busy indicator', function () {
+    const wrapper = shallow(<App marveller={mockMarveller}/>);
+    wrapper.setState({busy: true});
+    expect(wrapper.state().busy).to.equal(true);
+    expect(wrapper.find('img.loading')).to.have.length(1);
+  });
+
 });

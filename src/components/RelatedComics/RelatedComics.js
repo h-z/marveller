@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './RelatedComics.css';
+import './RelatedComics.css';
 import Comic from '../Comic/Comic';
 import Timeline from './Timeline';
 import _ from 'lodash';

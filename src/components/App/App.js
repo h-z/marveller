@@ -4,7 +4,7 @@ import Search from '../Search/Search';
 import RelatedComics from '../RelatedComics/RelatedComics';
 import logo from './marvel-logo.jpg';
 import loading from './loading.svg';
-import Image from 'react-bootstrap';
+
 class App extends Component {
   constructor(props, context) {
     super(props, context);
@@ -38,9 +38,7 @@ class App extends Component {
     var busy = '';
     if (this.state.busy) {
       busy = (<img src={loading} alt="busy" className="loading"/>);
-      // busy = 'busy';
     }
-    // busy = (<img src={loading} alt="busy" className="loading"/>);
     return (
       <div className="App">
         <div className="App-header">

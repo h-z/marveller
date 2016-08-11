@@ -10,3 +10,9 @@
 .App-header {
   padding: 5px;
 }
+
+.App .loading {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

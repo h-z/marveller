@@ -5,6 +5,12 @@ class Marveller {
 
   constructor(key) {
     this.key = key;
+    this.busy = false;
+    this.businessHandler = function () {}
+  }
+
+  handleBusiness(handler) {
+    this.businessHandler = handler;
   }
 
   toString() {
@@ -12,10 +18,10 @@ class Marveller {
   }
 
   request(endpoint, data={}) {
+    this.busy = true;
+    this.businessHandler(this.busy);
     var url = [baseUrl,endpoint].join('');
     return this.extractData($.get(url, $.extend({}, {apikey: this.key}, data)));
-    // return $.get(url, $.extend({}, {apikey: this.key}, data));
-
   }
 
   characters(data) {
@@ -35,9 +41,12 @@ class Marveller {
   }
 
   extractData(request) {
+    var self = this;
     // eslint-disable-next-line
     var d = $.Deferred();
     request.then(function(data) {
+      self.busy = false;
+      self.businessHandler(this.busy);
       if (200 === data['code']) {
         d.resolve(data['data']);
       } else {
